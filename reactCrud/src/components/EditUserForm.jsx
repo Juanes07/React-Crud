@@ -1,29 +1,33 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddUserForm = (props) => {
-  const { register, handleSubmit, formState:{errors} } = useForm();
+const EditUserForm = (props) => {
+  const { register, errors, handleSubmit, setValue } = useForm({
+    defaultValues: props.currentUser,
+  });
+
+  setValue("name", props.currentUser.name);
+  setValue("username", props.currentUser.username);
 
   const onSubmit = (data, e) => {
-    props.addUser(data);
+      data.id = props.currentUser.id
+    props.updateUser(props.currentUser.id, data);
     e.target.reset();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Nombre</label>
+      <label>Name</label>
       <div>{errors?.name?.message}</div>
       <input
         placeholder="Ingresa su Nombre Por favor"
         type="text"
         name="name"
-        {...register("name", { required: {value: true, message: "Campo Requerido" }})}
+        {...register("name", { required: true, message: "Campo Requerido" })}
       />
-      <span className="text-danger text-small d-block mb-2">
-        
-      </span>
+      <span className="text-danger text-small d-block mb-2"></span>
 
-      <label>Nombre de Usuario</label>
+      <label>Username</label>
       <input
         placeholder="Ingresa Nombre de Usuario Por favor"
         type="text"
@@ -32,9 +36,9 @@ const AddUserForm = (props) => {
           required: { value: true, message: "Campo Requerido" },
         })}
       />
-      <button>Agregar Usuario</button>
+      <button>Editar Usuario</button>
     </form>
   );
 };
 
-export default AddUserForm;
+export default EditUserForm;
