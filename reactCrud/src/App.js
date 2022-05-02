@@ -102,7 +102,7 @@ const App = () => {
           )}
         </div>
         <div className="flex-large">
-          <h2>View users</h2>
+          <h2>Lista Usarios</h2>
           <UserTable
             users={users}
             deleteUser={deleteUser}

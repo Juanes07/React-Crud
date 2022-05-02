@@ -1,14 +1,9 @@
 import React from "react";
+import TitleTable from "./TitleTable";
 const UserTable = (props) => {
   return (
     <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
+      <TitleTable />
       <tbody>
         {props.users.length > 0 ? (
           props.users.map((user) => (
