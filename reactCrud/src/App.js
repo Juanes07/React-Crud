@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import UserTable from "./components/UserTable";
+import UserTable from "./components/UserTable/UserTable";
 import { v4 as uuidv4 } from "uuid";
-import AddUserForm from "./components/AddUserForm";
-import EditUserForm from "./components/EditUserForm";
+import AddUserForm from "./components/AddUserForm/AddUserForm";
+import EditUserForm from "./components/EditUserForm/EditUserForm";
 
 const KEY = "Users_Save"
 

@@ -2,7 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const AddUserForm = (props) => {
-  const { register, handleSubmit, formState:{errors} } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data, e) => {
     props.addUser(data);
@@ -12,18 +16,17 @@ const AddUserForm = (props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Nombre</label>
-      <div>{errors?.name?.message}</div>
+      <div className="text-danger mb-4">{errors?.name?.message}</div>
       <input
         placeholder="Ingresa su Nombre Por favor"
         type="text"
         name="name"
-        {...register("name", { required: {value: true, message: "Campo Requerido" }})}
+        {...register("name", {
+          required: { value: true, message: "Campo Requerido" },
+        })}
       />
-      <span className="text-danger text-small d-block mb-2">
-        
-      </span>
-
       <label>Nombre de Usuario</label>
+      <div className="text-danger mb-4">{errors?.username?.message}</div>
       <input
         placeholder="Ingresa Nombre de Usuario Por favor"
         type="text"
@@ -32,6 +35,7 @@ const AddUserForm = (props) => {
           required: { value: true, message: "Campo Requerido" },
         })}
       />
+
       <button>Agregar Usuario</button>
     </form>
   );

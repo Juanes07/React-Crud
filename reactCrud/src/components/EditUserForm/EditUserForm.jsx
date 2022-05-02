@@ -10,7 +10,7 @@ const EditUserForm = (props) => {
   setValue("username", props.currentUser.username);
 
   const onSubmit = (data, e) => {
-      data.id = props.currentUser.id
+    data.id = props.currentUser.id;
     props.updateUser(props.currentUser.id, data);
     e.target.reset();
   };
