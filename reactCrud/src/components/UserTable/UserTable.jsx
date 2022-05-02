@@ -17,15 +17,15 @@ const UserTable = (props) => {
                     props.editRow(user);
                   }}
                 >
-                  Edit
+                  Editar
                 </button>
                 <button
-                  className="button muted-button"
+                  className="button muted-button ms-2"
                   onClick={() => {
                     props.deleteUser(user.id);
                   }}
                 >
-                  Delete
+                  Eliminar
                 </button>
               </td>
             </tr>
